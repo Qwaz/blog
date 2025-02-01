@@ -57,6 +57,7 @@ Svelte에 관심이 없더라도 interactive 튜토리얼을 어떻게 만들었
 - [ ] 배포
   - 무료 티어가 넉넉하고 빠른 [CloudFlare Pages](https://pages.cloudflare.com/)를 사용할 예정
 - [ ] 같은 태그의 글 모아보기
+- [ ] 같은 시리즈의 글 모아보기
 - [ ] Sticky table of contents
 - [ ] 다국어 지원
   - 포스팅을 영어와 한국어로 할 것 같은데,
