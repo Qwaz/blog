@@ -1,1 +1,15 @@
 @import 'tailwindcss';
+
+main.article {
+  h1 {
+    @apply text-2xl font-bold;
+  }
+
+  a {
+    @apply text-blue-500;
+
+    &:hover {
+      @apply text-blue-700;
+    }
+  }
+}

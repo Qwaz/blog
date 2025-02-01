@@ -1,0 +1,8 @@
+---
+title: SvelteKit으로 새 블로그를 만들다
+date: '2025-02-01'
+categories:
+  - web
+---
+
+Test

@@ -1,2 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<main class="article">
+  <h1>Main Page</h1>
+  <p>
+    Nothing interesting is here yet.
+    Maybe you want to visit <a href="/posts">my blog</a>?
+  </p>
+</main>
