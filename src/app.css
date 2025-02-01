@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@theme {
+  --font-sans: 'Pretendard Variable', sans-serif;
+}
+
 main.article {
   @apply leading-relaxed text-gray-800;
 
