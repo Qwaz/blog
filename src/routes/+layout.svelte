@@ -13,7 +13,7 @@
 </svelte:head>
 
 <div class="flex justify-center">
-	<div class="mx-6 my-8 w-full max-w-5xl shadow-lg">
+	<div class="w-full max-w-5xl md:mx-6 md:my-8 md:shadow-lg">
 		<nav class="bg-primary flex items-center justify-between px-6 py-3 text-white">
 			<a href="/" class="inline-block font-mono text-3xl font-semibold">qwaz</a>
 			<ul class="flex grow justify-end gap-6 text-lg">
