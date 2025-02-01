@@ -32,6 +32,10 @@ main.article {
     }
   }
 
+  code {
+    @apply text-sm bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded;
+  }
+
   p {
     @apply text-justify pt-1 pb-2;
   }
