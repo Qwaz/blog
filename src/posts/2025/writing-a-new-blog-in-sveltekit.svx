@@ -6,4 +6,62 @@ categories:
   - web
 ---
 
-Test
+2019년 대학원 입학 후 블로그 업데이트가 끊긴 지 4년 반이 지나 마침내 새 블로그를 만들었다.
+새 블로그를 만들게 된 이유는 여러 가지가 있는데, 가장 큰 이유는 인프라 관리에 쓰는 시간과 비용을 아끼고 싶어서였다.
+이전 블로그는 한 달에 $6짜리 Vultr 꼬마 VPS 인스턴스 위에서 워드프레스를 직접 설치해 실행하고 있었다.
+하지만 이를 제대로 관리하려면 호스트 OS 관리도 해야 하고, 일부 자동 업데이트가 가능하긴 하지만
+워드프레스와 플러그인 등을 꾸준히 업데이트 해야 하는 귀찮음도 있었다.
+그동안 사실상 방치 상태였고, GitHub과 정적 웹사이트 생성기와 무료 서빙 서비스를 사용하는 스택으로 이사가야겠다는 생각을 하다가
+이번에 드디어 실행에 옮겼다.
+
+블로그 글만 올릴 것이 목적이라면 쓰기 편한 SSG(Static Site Generator)가 많지만,
+장기적으로는 Resume나 독후감, 게임 후기 등 이종 컨텐츠들이 늘어날 거라고 생각해 SvelteKit을 사용해 직접 짜는 선택을 했다.
+Svelte는 이전에 React hater로 유명한(모르는 분인데 이렇게 불러서 죄송하지만 사실이죠?) Josh라는 분이
+[React의 대안으로 추천하는 글](https://joshcollinsworth.com/blog/antiquated-react)에서 알게 된 이후
+[Svelte 5에서 Reactivity를 다루는 방법](https://svelte.dev/blog/runes) 등 설계면에서도 흥미로운 부분이 많아
+계속 관심을 가지고 있는 상태였고,
+취미 프로젝트는 원래 써보고 싶은 기술 스택을 쓰는 것이 중요하기에 자연스럽게 채택하게 되었다.
+SvelteKit에서 server side rendering, client side rendering, static site generation(pre-render)
+셋 사이를 매우 손쉽게 오갈 수 있는 점도 좋았다.
+여담이지만 [Svelte/SvelteKit 튜토리얼](https://svelte.dev/tutorial/)은
+내가 해봤던 프로그래밍 튜토리얼 중 최고로 꼽을 수 있을 정도로 잘 만들었다.
+Svelte에 관심이 없더라도 interactive 튜토리얼을 어떻게 만들었는지는 한 번 확인해 보라고 추천할 수 있을 정도.
+구현에는 Joy of Code의 [Build a SvelteKit Markdown Blog](https://joyofcode.xyz/sveltekit-markdown-blog) 글을 많이 참고했다.
+
+지금은 정말 최소한의 기능만 구현된 상태인데,
+몇 시간 만에 뚝딱 만든 것 치고는 꽤 마음에 든다.
+가장 기본적인 글 목록과 글 보기 기능을 완성했고,
+이 글을 쓴 다음 남은 기능들을 하나하나 쳐 낼 생각이다.
+회사 다니면서 CTF 이외의 취미 개발을 못하고 있었는데
+오랜만에 일이 아닌 코딩 작업을 하니까 좀 젊어진 것 같은 기분이 든다.
+남들에게 보여주기 위한 글을 쓰는 것도 생각해보니 오랜만이다.
+
+## 여기까지 만들면서 고려한 사항들
+
+### 취향의 영역
+
+* 글은 화면의 중앙에
+* 텍스트는 양쪽 정렬
+* 게시글 slug는 `/posts/[slug]`
+
+### [글 목록 페이지](/posts)에 pagination을 넣을 것인가?
+
+그렇게까지 글을 많이 쓰지 않을 것 같아서 한 페이지에 다 넣기로 했고, 이 편이 짜기도 더 쉽다.
+
+## 남은 작업들
+
+- [ ] 이전 블로그 포스트 마이그레이션
+  - 이전 블로그의 대부분의 글을 데이터는 백업해 두고 글은 보이지 않게 처리하려고 하는데,
+    일부 살아남은 글은 포팅된 게시글로 넘어가도록,
+    아카이브 된 글은 아카이브 되었다는 안내 메시지를 보여줄 예정이다.
+- [ ] 배포
+  - 무료 티어가 넉넉하고 빠른 [CloudFlare Pages](https://pages.cloudflare.com/)를 사용할 예정
+- [ ] 같은 태그의 글 모아보기
+- [ ] Sticky table of contents
+- [ ] 다국어 지원
+  - 포스팅을 영어와 한국어로 할 것 같은데,
+    영어 화자가 한국어 포스트를 숨김 처리 할 수 있는 기능을 넣을 예정
+- [ ] Resume 페이지 포팅
+  - https://github.com/Qwaz/resume
+- [ ] About 페이지 포팅
+  - https://github.com/Qwaz/qwaz.github.io
