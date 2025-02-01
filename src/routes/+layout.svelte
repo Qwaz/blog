@@ -4,7 +4,6 @@
 </script>
 
 <svelte:head>
-	<title>Qwaz's Cabinet</title>
 	<link
 		rel="stylesheet"
 		as="style"

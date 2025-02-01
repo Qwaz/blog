@@ -5,6 +5,10 @@
 	let { data }: PageProps = $props();
 </script>
 
+<svelte:head>
+	<title>Qwaz's Blog Posts</title>
+</svelte:head>
+
 <h1 class="text-2xl font-bold">All Posts</h1>
 
 <ul>
