@@ -14,12 +14,11 @@
 
 <div class="flex justify-center">
 	<div class="mx-6 my-8 w-full max-w-5xl shadow-lg">
-		<nav class="flex items-center justify-between bg-violet-200 px-6 py-3">
+		<nav class="bg-primary flex items-center justify-between px-6 py-3 text-white">
 			<a href="/" class="inline-block font-mono text-3xl font-semibold">qwaz</a>
 			<ul class="flex grow justify-end gap-6 text-lg">
-				<li class="cursor-not-allowed text-gray-400">About</li>
-				<li><a href="/posts" class="inline-block">Blog</a></li>
-				<li class="cursor-not-allowed text-gray-400">Resume</li>
+				<li class="cursor-not-allowed opacity-40">Resume</li>
+				<li><a href="/posts">Blog</a></li>
 			</ul>
 		</nav>
 

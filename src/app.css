@@ -2,6 +2,9 @@
 
 @theme {
   --font-sans: 'Pretendard Variable', sans-serif;
+
+  --color-primary: #ef5777;
+  --color-primary-dark: #eb2a53;
 }
 
 main.article {
