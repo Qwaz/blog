@@ -7,7 +7,7 @@ const styleMap: Record<Language, DateStyle> = {
 	ko: 'long'
 };
 
-export function formatDate(date: string, language: Language) {
+export function reformatDateString(date: string, language: Language) {
 	const dateToFormat = new Date(date.replaceAll('-', '/'));
 	const dateFormatter = new Intl.DateTimeFormat(language, { dateStyle: styleMap[language] });
 	return dateFormatter.format(dateToFormat);

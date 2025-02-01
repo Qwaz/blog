@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
-	import { formatDate as reformatDateString } from '$lib/date';
+	import { reformatDateString } from '$lib/date';
 
 	let { data }: PageProps = $props();
 </script>
@@ -9,9 +9,13 @@
 
 <ul>
 	{#each data.posts as post}
-		<li>
-			<h2 class="mt-3 text-xl font-semibold">{post.title}</h2>
+		<li class="mt-3">
 			<span class="text-gray-500">{reformatDateString(post.date, post.language)}</span>
+			<h2 class="text-xl font-semibold">
+				<a href="posts/{post.slug}" class="hover:text-blue-600">
+					{post.title}
+				</a>
+			</h2>
 		</li>
 	{/each}
 </ul>

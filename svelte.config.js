@@ -18,7 +18,7 @@ const config = {
 		adapter: adapter(),
 
 		alias: {
-			$posts: 'posts'
+			$posts: 'src/posts'
 		}
 	}
 };
