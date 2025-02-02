@@ -1,7 +1,27 @@
 import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-import { mdsvex } from 'mdsvex';
+import { mdsvex, escapeSvelte } from 'mdsvex';
+import { createHighlighter } from 'shiki';
+
+// https://shiki.style/themes
+const shikiTheme = 'dracula-soft';
+const languages = ['javascript', 'typescript', 'cpp', 'rust'];
+const highlighter = await createHighlighter({
+	themes: [shikiTheme],
+	langs: languages
+});
+
+/** @type {import('mdsvex').MdsvexOptions} */
+const mdsvexOptions = {
+	extensions: ['.svx'],
+	highlight: {
+		highlighter: async (code, lang = 'text') => {
+			const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: shikiTheme }));
+			return `{@html \`${html}\` }`;
+		}
+	}
+};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -9,7 +29,7 @@ const config = {
 
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
-	preprocess: [vitePreprocess(), mdsvex()],
+	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 
 	kit: {
 		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.

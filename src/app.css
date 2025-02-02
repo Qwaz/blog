@@ -22,6 +22,14 @@ body {
     @apply text-xl font-semibold mt-3 mb-1;
   }
 
+  details {
+    @apply m-2 cursor-pointer;
+
+    &> summary {
+      @apply font-semibold;
+    }
+  }
+
   ul {
     @apply list-disc list-outside my-1 ml-5;
 
@@ -41,6 +49,10 @@ body {
 
   img {
     @apply mx-auto my-2;
+  }
+
+  pre {
+    @apply px-5 py-3 rounded-lg;
   }
 
   *:not(pre) > code {
