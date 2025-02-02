@@ -23,10 +23,10 @@ body {
   }
 
   details {
-    @apply m-2 cursor-pointer;
+    @apply m-2;
 
     &> summary {
-      @apply font-semibold;
+      @apply cursor-pointer font-semibold;
     }
   }
 
@@ -52,7 +52,7 @@ body {
   }
 
   pre {
-    @apply px-5 py-3 rounded-lg;
+    @apply px-5 py-3 rounded-lg my-2;
   }
 
   *:not(pre) > code {
