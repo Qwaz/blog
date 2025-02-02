@@ -11,18 +11,14 @@ body {
   overflow-y: scroll;
 }
 
-main.article {
+#content {
   @apply leading-relaxed text-gray-800;
 
   h1 {
-    @apply text-2xl font-bold;
-  }
-
-  h2 {
     @apply text-2xl font-semibold mt-3 mb-2;
   }
 
-  h3 {
+  h2 {
     @apply text-xl font-semibold mt-3 mb-1;
   }
 

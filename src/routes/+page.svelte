@@ -2,7 +2,7 @@
 	<title>Yechan Bae (Qwaz)</title>
 </svelte:head>
 
-<main class="article">
+<main id="content">
 	<p>
 		Nothing interesting is here yet. Maybe you want to check my <a href="/posts">blog posts</a>?
 	</p>

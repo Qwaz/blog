@@ -14,8 +14,8 @@
 		<time datetime={metadata.date} class="text-gray-500">
 			{reformatDateString(metadata.date, metadata.language)}
 		</time>
-		<h1>{metadata.title}</h1>
+		<h1 class="text-2xl font-bold">{metadata.title}</h1>
 
-		<div class="mt-4"><data.content /></div>
+		<div id="content" class="mt-4"><data.content /></div>
 	</article>
 </main>
