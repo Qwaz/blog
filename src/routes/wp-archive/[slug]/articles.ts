@@ -26,7 +26,7 @@ export const articleMapping: Record<string, boolean | string> = {
 	'도메인-구매': false,
 	'20150516': false,
 	'pico-park': false,
-	'scc와-2-sat': false,
+	'scc와-2-sat': 'scc-and-2-sat',
 	'워드프레스-블로그-cafe24-탈출기': false,
 	'gcj-2015-결과보고': false,
 	'20150215': false,
@@ -171,7 +171,7 @@ export const articleMapping: Record<string, boolean | string> = {
 	'g-avoider-0-9': false,
 	'파티클-연습': false,
 	'combat-tanks': false,
-	'defcon-2018-quals-smcauth-write-up-kor': false,
+	'defcon-2018-quals-smcauth-write-up-kor': true,
 	'google-code-jam-2018-r1a': false,
 	'sctf-2018-quals-write-up': false
 };

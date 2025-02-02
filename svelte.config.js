@@ -1,6 +1,8 @@
 import adapter from '@sveltejs/adapter-cloudflare';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
+import rehypeKatexSvelte from 'rehype-katex-svelte';
+import remarkMath from 'remark-math';
 import { mdsvex, escapeSvelte } from 'mdsvex';
 import { createHighlighter } from 'shiki';
 
@@ -20,7 +22,9 @@ const mdsvexOptions = {
 			const html = escapeSvelte(highlighter.codeToHtml(code, { lang, theme: shikiTheme }));
 			return `{@html \`${html}\` }`;
 		}
-	}
+	},
+	remarkPlugins: [remarkMath],
+	rehypePlugins: [rehypeKatexSvelte]
 };
 
 /** @type {import('@sveltejs/kit').Config} */
