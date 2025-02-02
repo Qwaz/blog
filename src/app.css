@@ -35,6 +35,7 @@ body {
 
     &.contains-task-list {
       list-style: none;
+      @apply ml-1;
     }
 
     ul {
