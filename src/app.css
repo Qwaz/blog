@@ -7,6 +7,10 @@
   --color-primary-dark: #eb2a53;
 }
 
+body {
+  overflow-y: scroll;
+}
+
 main.article {
   @apply leading-relaxed text-gray-800;
 
