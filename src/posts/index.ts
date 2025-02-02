@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const Category = z.enum(['web', 'problem-solving', 'security', 'rust', 'life', 'opinion']);
+const Category = z.enum(['web', 'problem-solving', 'security', 'ctf', 'rust', 'life', 'opinion']);
 export type Category = z.infer<typeof Category>;
 
 const Language = z.enum(['ko', 'en']);

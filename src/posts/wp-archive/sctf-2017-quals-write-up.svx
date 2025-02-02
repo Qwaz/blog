@@ -1,0 +1,123 @@
+---
+title: 'SCTF 2017 Quals Write-up'
+date: '2017-07-20'
+language: en
+categories: 
+  - security
+  - ctf
+---
+
+# Attack
+
+## Mic Check
+
+The description contains the flag.
+
+Flag: `SCTF{Welcome_to_SCTF2017_haha}`
+
+## Readflag
+
+When we execute the given file, the message says that the sum of the elements in the list should be 10. We can modify `dump.py` file to change the transmitted Python object. However, even if we send a list which satisfies the requirement, we cannot get the flag.
+
+If we send malformed data, we can get the server's file name `test.py` from the error log. The server unpickles our object, which leads to an arbitrary code execution. It has filtering on some system calls, but open and read is not filtered. We can get the flag by reading `test.py` source code.
+
+[code](https://github.com/Qwaz/solved-hacking-problem/blob/master/SCTF/2017%20Quals/readflag/dump.py)
+
+Flag: `SCTF{3a5y_e4zy_p1ckl1ng}`
+
+## Letter To Me
+
+- Stage 1 - Get the php source file
+
+We can get the source files using PHP local file inclusion vulnerability.
+
+Accessing `http://lettertome.eatpwnnosleep.com/?page=php://filter/convert.base64-encode/resource=??` gives us base64 encoded `??.php` file.
+
+- Stage 2 - Login with remote database
+
+The login part uses `mysql_real_escape_string`, so we cannot perform SQL Injection. However, in `index.php` file, `$_GET` and `$_POST` are extracted and we can overwrite connection data in `conn.php` with those attack vector.
+
+We can login by creating fake id/password pair in our own server and accessing `http://lettertome.eatpwnnosleep.com/?page=login&servername={SERVER_URL_AND_PORT}&username=pwn&password=pwn&id=admin&pw=admin`.
+
+- Stage 3 - SQL Injection
+
+There is no SQL Injection filtering on `resolve_file` in note class. Therefore, we want to control the `id` variable in the note class.
+
+When we send a message in the send page, a note class is created and saved to the database in PHP serialized form. However, before saving, it passes through the filtering routine which replaces some word to `$profanity_word` repeated to the length of that word. Since `$profanity_word` is also defined in `conn.php` , we can overwrite it and control the filtering routine. PHP unserialize function ignores extra data at the end, so we can create malicious serialized note using filtering routine. Then, we can check our SQL injection result in the show page.
+
+SQL Injection on `information_schema` table gives us the table name and column name for the flag which is `LTOM_Fl3g` and `flag` respectively.
+
+[code](https://github.com/Qwaz/solved-hacking-problem/blob/master/SCTF/2017%20Quals/letter_to_me/injection.py)
+
+Flag: `SCTF{Enj0y_y0ur_0nly_life}`
+
+## Labyrinth
+
+There's an arbitrary file read vulnerability in the 3rd menu. However, accessing `flag` or `../flag` gives us nothing. Using this vulnerability, we can get the library file from `/lib32/libc-2.23.so` and read process memory map from `/proc/{PROCESS_ID}/maps`. I brute-forced the pid during the CTF, but it can be done better by reading `/proc/self/maps`. With the leaked memory map, we can bypass ASLR and PIE.
+
+When we make the labyrinth, we can leave INFO data in the labyrinth file. If we put a blank character in INFO, only the first part of the INFO will be considered as INFO and characters after that will be considered as the first line of the labyrinth. We can perform a heap overflow because labyrinth load routine only checks the line break and does not check the line length.
+
+Do labyrinth menu first loads a labyrinth file which contains heap overflow, and clearing the labyrinth gives us two size-controlled malloc(name and comment). Therefore, we can utilize the [The House of Force](http://phrack.org/issues/66/10.html) technique. I overwrited `__free_hook` in libc and got a shell.
+
+Flag: `SCTF{f0rce_y0u_t0_br34k_th3_h0us3_0f_l4byr1nth}`
+
+# Defense
+
+## Dfa
+
+In the `add_node` function of `auto.c`, `namelen` is defined as unsigned int. If we put length to -1, `namelen` becomes 4294967295, `namelen + 1` will be 0, and we can perform buffer overflow.
+
+Changing the 113th line to `if (namelen >= 0x100)` gives us the flag.
+
+Flag: `SCTF{simple patch tutorial}`
+
+# Crypto
+
+## Toilet
+
+Session json data looks like this `{"is_admin": false, "name": "Test"}`. We can only control the name part of it.
+
+uHash is calculated in $GF(2^{128})$ and its value is $block_1 \times key ^ {n} + block_2 \times key ^ {n-1} + \cdots + block_n \times key$. If we send two requests which have the same nonce and 1 difference of (n-1)th block, xoring two sign gives us the square value of key.
+
+We can perform square root in the field by powering the value by $2^{127}$ time. This gives us the key of the signer, and we can sign whatever we want.
+
+Creating the fake session with `"is_admin": true` gives us the flag.
+
+[code](https://github.com/Qwaz/solved-hacking-problem/blob/master/SCTF/2017%20Quals/toilet/solver.py)
+
+Flag: `SCTF{Nonce_misuse_in_Wegman_Carter_MAC}`
+
+# Coding
+
+## Asm
+
+We have to automate the parsing of simple add, subtraction, multiply formula image. We can remove character overlap by classifying the RGB characters separately. Then, use the flood fill algorithm to count the number of pixel. The data does not have rotation or size variance, so counting the number of pixel is sufficient to classify each characters.
+
+[code](https://github.com/Qwaz/solved-hacking-problem/blob/master/SCTF/2017%20Quals/ASM/solver.py)
+
+Flag: `SCTF{Fun_with_0CR}`
+
+## Turing Competition
+
+The problem asks us to classify the given tape using turing machine.
+
+- 1st stage - `'0' * n + '1' * m where (n>=0 and m>=0)`
+- 2nd stage - `'1'*x where (7 * x) % 13 == 1`
+- 3rd stage - `'0'*n + '1'*n where (n>=0)`
+- 4th stage - `'0'*p where p is prime`
+
+1st~3rd stage is quite easy. We can solve the 4th stage easily by pre-calculating the primes.
+
+[code](https://github.com/Qwaz/solved-hacking-problem/blob/master/SCTF/2017%20Quals/turing_competition/solver.py)
+
+Flag: `SCTF{Turing_Machine_is_v3ry_p0werful1}`
+
+# Reversing
+
+## Easyhaskell
+
+The program converts three bytes of argv\[0\] to four bytes of output, just like base64. We can do byte-by-byte brute-forcing on argv\[0\] to find the input which creates `=ze=/<fQCGSNVzfDnlk$&?N3oxQp)K/CVzpznK?NeYPx0sz5`.
+
+[code](https://github.com/Qwaz/solved-hacking-problem/blob/master/SCTF/2017%20Quals/easy_haskell/solver.py)
+
+Flag: `SCTF{D0_U_KNoW_fUnc10N4L_L4n9U4g3?}`

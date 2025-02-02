@@ -1,5 +1,5 @@
 export const articleMapping: Record<string, boolean | string> = {
-	'google-ctf-2019-quals-code-golf-sandstone': false,
+	'google-ctf-2019-quals-code-golf-sandstone': true,
 	'issues-of-rusts-remove-dir-all-implementation-on-windows': false,
 	'an-smt-solver-that-i-want': false,
 	'리눅스-퍼미션-관리': false,
@@ -153,7 +153,7 @@ export const articleMapping: Record<string, boolean | string> = {
 	'numpy-openblas-python3': false,
 	'웹-기반-레주메-리팩토링하기': 'refactoring-web-based-resume',
 	'defcon-ctf-2017-본선-참가-후기': 'participating-def-con-2017-finals',
-	'sctf-2017-quals-write-up': false,
+	'sctf-2017-quals-write-up': true,
 	'창의it설계-주제-고민-중': 'preparing-creative-it-design-project',
 	'gcj-2017-quals-후기': false,
 	'lets-encrypt-nginx-wordpress-blog': false,
@@ -173,5 +173,5 @@ export const articleMapping: Record<string, boolean | string> = {
 	'combat-tanks': false,
 	'defcon-2018-quals-smcauth-write-up-kor': true,
 	'google-code-jam-2018-r1a': false,
-	'sctf-2018-quals-write-up': false
+	'sctf-2018-quals-write-up': true
 };

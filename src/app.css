@@ -15,19 +15,27 @@ body {
   @apply leading-relaxed text-gray-800;
 
   h1 {
-    @apply text-2xl font-semibold mt-3 mb-2;
+    @apply text-2xl font-semibold my-3;
   }
 
   h2 {
-    @apply text-xl font-semibold mt-3 mb-1;
+    @apply text-xl font-semibold my-3;
+  }
+
+  h3 {
+    @apply text-lg font-semibold my-3;
   }
 
   details {
-    @apply m-2;
+    @apply m-2 my-3;
 
     &> summary {
       @apply cursor-pointer font-semibold;
     }
+  }
+
+  blockquote {
+    @apply border-l-4 border-gray-300 pl-4 my-2 bg-gray-100;
   }
 
   ul {
@@ -49,7 +57,7 @@ body {
   }
 
   img {
-    @apply mx-auto my-2;
+    @apply mx-auto my-3;
   }
 
   pre {
@@ -61,7 +69,7 @@ body {
   }
 
   p {
-    @apply text-justify pt-1 pb-2;
+    @apply text-justify my-2;
   }
 
   a {

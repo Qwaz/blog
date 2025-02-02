@@ -8,7 +8,7 @@ import { createHighlighter } from 'shiki';
 
 // https://shiki.style/themes
 const shikiTheme = 'dracula-soft';
-const languages = ['javascript', 'typescript', 'cpp', 'rust'];
+const languages = ['javascript', 'typescript', 'python', 'c', 'cpp', 'rust', 'haskell'];
 const highlighter = await createHighlighter({
 	themes: [shikiTheme],
 	langs: languages

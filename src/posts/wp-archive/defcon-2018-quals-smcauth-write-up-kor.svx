@@ -4,6 +4,8 @@ date: '2018-06-07'
 language: ko
 categories:
   - security
+  - ctf
+  - rust
 ---
 
 # 문제 개요
