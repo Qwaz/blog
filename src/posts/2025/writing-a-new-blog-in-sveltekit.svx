@@ -50,10 +50,12 @@ Svelte에 관심이 없더라도 interactive 튜토리얼을 어떻게 만들었
 
 # 남은 작업들
 
-- [ ] 이전 블로그 포스트 마이그레이션
+- [x] 이전 블로그 포스트 마이그레이션 (2025-02-02)
   - 이전 블로그의 대부분의 글을 데이터는 백업해 두고 글은 보이지 않게 처리하려고 하는데,
     일부 살아남은 글은 포팅된 게시글로 넘어가도록,
     아카이브 된 글은 아카이브 되었다는 안내 메시지를 보여줄 예정이다.
+  - [lonekorean/wordpress-export-to-markdown](https://github.com/lonekorean/wordpress-export-to-markdown)을 사용했다. 한국 분이 아니신 것 같은데 왜 lonekorean이지? 아무튼 많이 감사드립니다.
+  - 마이그레이션 하면서 찾아보니 2014년 3월 말에 네이버 블로그에서 워드프레스로 갈아탔더라. 만 10년만의 블로그 이사다.
 - [ ] 배포
   - 무료 티어가 넉넉하고 빠른 [CloudFlare Pages](https://pages.cloudflare.com/)를 사용할 예정
 - [ ] 같은 태그의 글 모아보기

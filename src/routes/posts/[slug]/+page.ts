@@ -8,7 +8,7 @@ export async function load({ parent, params }) {
 		error(404, `Could not find ${params.slug}`);
 	}
 
-	const post = await import(`../../../posts/${metadata.year}/${metadata.slug}.svx`);
+	const post = await import(`../../../posts/${metadata.subdir}/${metadata.slug}.svx`);
 
 	return {
 		content: post.default,

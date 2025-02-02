@@ -1,0 +1,11 @@
+---
+title: 이매진컵 2015 Korea Finals 이노베이션 분야 우승!
+date: '2015-03-14'
+language: ko
+categories:
+  - life
+---
+
+![photograph with team members](/post-images/imagine-cup-2015-korea-finals-win.jpg)
+
+마이크로소프트 이매진컵 2015 Korea Finals 이노베이션 분야 1위 + 네이버 D2 특별상 수상했습니다! 앞으로도 열심히 노력하겠습니다.

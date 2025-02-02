@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const Category = z.enum(['web']);
+const Category = z.enum(['web', 'problem-solving', 'security', 'rust', 'life', 'opinion']);
 export type Category = z.infer<typeof Category>;
 
 const Language = z.enum(['ko', 'en']);
@@ -14,7 +14,7 @@ const Post = z.object({
 	categories: z.array(Category),
 	// Derived properties
 	slug: z.string(),
-	year: z.coerce.number()
+	subdir: z.string()
 });
 export type Post = z.infer<typeof Post>;
 
@@ -30,23 +30,21 @@ export async function getPosts() {
 	for (const path in fileDict) {
 		const file = fileDict[path];
 
-		const year = path.split('/').at(-2);
+		const subdir = path.split('/').at(-2);
 		const fileName = path.split('/').at(-1);
-		if (year === undefined) {
+		if (subdir === undefined) {
 			throw new Error('year is undefined');
 		}
 		if (fileName === undefined) {
 			throw new Error('fileName is undefined');
 		}
 
-		const dotSplit = fileName.split('.');
-		const slug = dotSplit[0];
-		const extension = dotSplit[1];
-		if (extension != 'svx') {
+		if (!fileName.endsWith('.svx')) {
 			throw new Error('extension is not svx');
 		}
+		const slug = fileName.slice(0, -4);
 
-		const payload = { ...file.metadata, slug, year };
+		const payload = { ...file.metadata, slug, subdir };
 		const parsedPost = Post.safeParse(payload);
 		if (!parsedPost.success) {
 			const errorText = parsedPost.error.errors

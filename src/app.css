@@ -23,7 +23,7 @@ body {
   }
 
   ul {
-    @apply list-disc list-inside my-1;
+    @apply list-disc list-outside my-1 ml-5;
 
     &.contains-task-list {
       list-style: none;
@@ -31,11 +31,19 @@ body {
 
     ul {
       list-style: circle;
-      @apply list-inside ml-6;
+      @apply list-outside ml-10;
     }
   }
 
-  code {
+  ol {
+    @apply list-decimal list-outside my-1 ml-5;
+  }
+
+  img {
+    @apply mx-auto my-2;
+  }
+
+  *:not(pre) > code {
     @apply text-sm bg-pink-50 text-pink-600 px-1.5 py-0.5 rounded;
   }
 

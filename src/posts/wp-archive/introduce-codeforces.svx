@@ -1,0 +1,43 @@
+---
+title: 코드포스(CodeForces) 소개
+date: '2013-01-21'
+language: ko
+categories:
+  - problem-solving
+---
+
+[http://codeforces.com/](http://codeforces.com/)
+
+러시아 팀이 운영하는 알고리즘 트레이닝 사이트입니다.
+
+![CodeForces rating graph](/post-images/introduce-codeforces/01.jpg)
+
+콘테스트를 통해 레이팅을 매기는 시스템이 있으며, 레이팅 구간을 색깔별로 구분합니다.
+
+주기적으로 콘테스트가 열리는데, Div 1과 Div 2로 나뉩니다. Div 2가 Div 1보다 쉽고, 레이팅이 보라색 이상이 되면 Div 2에 참가할 수 없습니다.
+
+![CodeForces result screen](/post-images/introduce-codeforces/02.jpg)
+
+코드포스의 콘테스트에서 점수를 얻는 법은 크게 두 가지로 나뉩니다. 하나는 문제를 푸는 것이고, 또 하나는 Hack입니다.
+
+문제를 푸는건 말 그대로 그냥 문제를 풀면 되는데, 문제 별로 배점이 다르고 시간이 지날 수록 풀어서 얻을 수 있는 점수가 떨어지게 됩니다.
+
+또 한 가지 재밌는 시스템으로 Hack이 있는데, 코드포스는 콘테스트 진행 중에는 pretest set이라는 조금 허술한 데이터를 가지고 채점을 하게 됩니다.
+
+이런 pretest set을 통과한 다른 사람의 소스에 대해 '답이 나오지 않을 것 같은' 데이터를 서버에 제시하고, 실제로 답이 나오지 않을 경우 점수를 얻을 수 있습니다.
+
+![CodeForces lock](/post-images/introduce-codeforces/03.jpg)
+
+Hack을 하기 전에는 그 문제의 pretest set을 통과해야 하며, 그 문제를 Lock해야 합니다.
+
+문제에 Lock을 할 경우 그 문제에 대한 재제출이 불가능해집니다. 만약 자신의 코드가 Hack 당했을 경우, Lock을 하지 않은 상태라면 재제출을 통해 다시 맞추면 되지만 Lock한 경우 다시 제출할 수 없습니다.
+
+또한 다른 사람에게 Hack 당하지 않더라도 콘테스트가 끝난 이후 굉장히 많은 데이터를 통해 재채점을 해서 허술한 코드들을 걸러냅니다.
+
+단순히 콘테스트를 보는 것 뿐만 아니라 예전 콘테스트의 문제들을 풀거나, 모의시험을 보는 기능도 갖추고 있습니다.
+
+컨테스트 처음 해 봤는데 꿀잼이네요 ㅋㅋ D까지 빨리 풀고 E에서 말리는 바람에 아쉽긴 했지만 Div 2 3등이라는 나름 만족스러운 결과를 얻었습니다.
+
+Div 1 C와 Div 2 E가 같은 문제였는데, Div 2 E를 푼 사람이 20명인 반면 Div 1 C는 250명쯤 되더군요&amp;lt;&amp;lt;
+
+여튼 앞으로 자주자주 하게 될 것 같습니다.
